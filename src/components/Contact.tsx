@@ -49,18 +49,18 @@ export default function Contact() {
                 href={contact.href}
                 target={contact.href.startsWith("mailto:") ? undefined : "_blank"}
                 rel={contact.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                className="group bg-white dark:bg-slate-800 p-6 rounded-xl border-2 border-slate-200 dark:border-slate-700 hover:border-[var(--accent)] hover:shadow-lg hover:shadow-[var(--accent)]/10 transition-all duration-300 transform hover:scale-105 animate-fade-in-up"
+                className="group bg-white dark:bg-slate-800 p-6 rounded-xl border-2 border-slate-200 dark:border-slate-700 hover:border-[var(--accent-pink)] hover:shadow-lg hover:shadow-[var(--accent-pink)]/10 transition-all duration-300 transform hover:scale-105 animate-fade-in-up"
                 style={{ animationDelay: `${0.2 + index * 0.1}s` }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-slate-100 dark:bg-slate-700 rounded-lg group-hover:bg-[var(--accent-light)] dark:group-hover:bg-[var(--accent-light)] transition-colors">
-                    <Icon className="w-6 h-6 text-slate-700 dark:text-slate-300 group-hover:text-[var(--accent)] transition-colors" />
+                  <div className="p-3 bg-slate-100 dark:bg-slate-700 rounded-lg group-hover:bg-[var(--accent-pink-light)] dark:group-hover:bg-[var(--accent-pink-light)] transition-colors">
+                    <Icon className="w-6 h-6 text-slate-700 dark:text-slate-300 group-hover:text-[var(--accent-pink)] transition-colors" />
                   </div>
                   <div className="flex-1">
                     <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">
                       {contact.label}
                     </p>
-                    <p className="text-slate-900 dark:text-slate-100 font-medium group-hover:text-[var(--accent)] transition-colors">
+                    <p className="text-slate-900 dark:text-slate-100 font-medium group-hover:text-[var(--accent-pink)] transition-colors">
                       {contact.value}
                     </p>
                   </div>
@@ -68,21 +68,6 @@ export default function Contact() {
               </a>
             );
           })}
-        </div>
-
-        {/* Education Section */}
-        <div className="mt-16 bg-white dark:bg-slate-800 p-8 rounded-xl border-2 border-slate-200 dark:border-slate-700 hover:border-[var(--accent)] transition-all duration-300 animate-fade-in-up animate-delay-400">
-          <h3 className="text-2xl font-semibold mb-4 text-[var(--accent)]">
-            Education
-          </h3>
-          <div className="space-y-2">
-            <p className="text-lg font-medium text-slate-900 dark:text-slate-100">
-              Bachelor of Arts in Theology
-            </p>
-            <p className="text-slate-600 dark:text-slate-400">
-              Naga View Adventist College — 2017 – 2021
-            </p>
-          </div>
         </div>
       </div>
     </section>

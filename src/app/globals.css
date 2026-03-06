@@ -1,11 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #000000;
   --foreground: #171717;
+  /* Primary blue accent */
   --accent: #3b82f6;
   --accent-hover: #2563eb;
   --accent-light: #dbeafe;
+  /* Purple-pink secondary accent */
+  --accent-pink: #e11d8a;       /* magenta / purple-pink */
+  --accent-pink-light: #fdf2ff; /* very soft lilac-pink */
 }
 
 @theme inline {
@@ -16,15 +20,20 @@
   --color-accent-light: var(--accent-light);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-raleway: var(--font-raleway);
+  --font-syne: var(--font-syne);
+  --font-display: var(--font-syne);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #000000;
     --foreground: #ededed;
     --accent: #60a5fa;
     --accent-hover: #3b82f6;
-    --accent-light: #1e3a8a;
+    --accent-light: #1d3461;
+    --accent-pink: #c026d3;      /* vivid violet-magenta */
+    --accent-pink-light: #4a044e; /* deep purple tint */
   }
 }
 
@@ -82,6 +91,24 @@
   }
 }
 
+@keyframes codeRoll {
+  from {
+    transform: translateY(-25%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes nameGlimmer {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 100% center;
+  }
+}
+
 @keyframes shimmer {
   0% {
     background-position: -1000px 0;
@@ -89,6 +116,33 @@
   100% {
     background-position: 1000px 0;
   }
+}
+
+@layer utilities {
+  .bg-accent-gradient {
+    background-image: linear-gradient(
+      to right,
+      #7c3aed,
+      var(--accent-pink),
+      #ec4899
+    );
+  }
+
+  .font-name-raleway {
+    font-family: var(--font-syne), system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-headline {
+    font-family: Bitcount Prop Double Ink, var(--font-display), sans-serif !important;
+    letter-spacing: 0.02em;
+    font-size: clamp(2rem, 8vw, 6rem);
+    line-height: .88;
+    font-weight: 500;
+  }
+
 }
 
 .animate-fade-in-up {
@@ -109,6 +163,34 @@
 
 .animate-scale-in {
   animation: scaleIn 0.5s ease-out forwards;
+}
+
+.animate-code-roll {
+  animation: codeRoll 25s linear infinite;
+}
+
+/* Hero name glimmer - outside layer so it isn't overridden */
+.bg-name-glimmer {
+  background-image: linear-gradient(
+    90deg,
+    #94a3b8 0%,
+    #94a3b8 25%,
+    #cbd5e1 38%,
+    #f8fafc 50%,
+    #cbd5e1 62%,
+    #94a3b8 75%,
+    #94a3b8 100%
+  );
+  background-size: 200% 100%;
+  background-position: 0% center;
+  background-repeat: no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.animate-name-glimmer {
+  animation: fadeInUp 0.6s ease-out forwards, nameGlimmer 4s ease-in-out 0.5s infinite;
 }
 
 .animate-delay-100 {

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Raleway, Syne } from "next/font/google";
+import "@fontsource/bitcount-prop-double-ink/500.css";
+import "@fontsource/bitcount-prop-double-ink/700.css";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,9 +18,26 @@ const geistMono = Geist_Mono({
   preload: true,
 });
 
+const raleway = Raleway({
+  variable: "--font-raleway",
+  subsets: ["latin"],
+  weight: ["200", "500"],
+  display: "swap",
+  preload: true,
+});
+
+const syne = Syne({
+  variable: "--font-syne",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+  preload: true,
+});
+
 export const metadata: Metadata = {
   title: "Paul James Villanueva - Full-Stack Developer Portfolio",
-  description: "Results-driven Full-Stack Software Developer with over 4 years of experience in designing, developing, and deploying scalable web and mobile applications.",
+  description:
+    "Results-driven Full-Stack Software Developer with over 4 years of experience in designing, developing, and deploying scalable web and mobile applications.",
 };
 
 export default function RootLayout({
@@ -29,7 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} ${syne.variable} antialiased`}
       >
         {children}
       </body>

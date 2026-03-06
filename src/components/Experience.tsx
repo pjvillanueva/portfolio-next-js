@@ -99,7 +99,7 @@ export default function Experience() {
         </h2>
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[var(--accent)] via-slate-200 to-slate-200 dark:via-slate-700 dark:to-slate-700"></div>
+          <div className="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#7c3aed] via-[var(--accent-pink)] to-[#ec4899] dark:from-[#a855f7] dark:via-[var(--accent-pink)] dark:to-[#f472b6]"></div>
           
           <div className="space-y-12">
             {experiences.map((exp, index) => (
@@ -109,19 +109,19 @@ export default function Experience() {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-2 md:left-6 top-2 w-4 h-4 bg-[var(--accent)] rounded-full border-4 border-white dark:border-slate-900 shadow-lg shadow-[var(--accent)]/50"></div>
+                <div className="absolute left-2 md:left-6 top-2 w-4 h-4 bg-[var(--accent-pink)] rounded-full border-4 border-white dark:border-slate-900 shadow-lg shadow-[var(--accent-pink)]/50"></div>
                 
-                <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg border-2 border-slate-200 dark:border-slate-700 hover:border-[var(--accent)] hover:shadow-lg hover:shadow-[var(--accent)]/10 transition-all duration-300 transform hover:scale-[1.02]">
+                <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg border-2 border-slate-200 dark:border-slate-700 hover:border-[var(--accent-pink)] hover:shadow-lg hover:shadow-[var(--accent-pink)]/10 transition-all duration-300 transform hover:scale-[1.02]">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
                     <div>
-                      <h3 className="text-xl font-semibold text-[var(--accent)] mb-1">
+                      <h3 className="text-xl font-semibold text-[var(--accent-pink)] mb-1">
                         {exp.title}
                       </h3>
                       <p className="text-lg font-medium text-slate-700 dark:text-slate-300">
                         {exp.company}
                       </p>
                     </div>
-                    <span className="text-sm text-[var(--accent)] dark:text-[var(--accent)] mt-1 sm:mt-0 sm:ml-4 whitespace-nowrap font-medium">
+                    <span className="text-sm text-[var(--accent-pink)] dark:text-[var(--accent-pink)] mt-1 sm:mt-0 sm:ml-4 whitespace-nowrap font-medium">
                       {formatPeriod(exp.period)}
                     </span>
                   </div>

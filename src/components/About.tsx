@@ -17,14 +17,14 @@ export default function About() {
             Passionate about clean code, performance optimization, and user-centric design. I thrive in 
             collaborative environments and am always eager to learn new technologies and best practices.
           </p>
-          <div className="mt-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg border-2 border-slate-200 dark:border-slate-700 hover:border-[var(--accent)] transition-all duration-300 animate-fade-in-up animate-delay-300">
-            <h3 className="text-xl font-semibold mb-4 text-[var(--accent)]">
+          <div className="mt-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg border-2 border-slate-200 dark:border-slate-700 hover:border-[var(--accent-pink)] transition-all duration-300 animate-fade-in-up animate-delay-300">
+            <h3 className="text-xl font-semibold mb-4 text-[var(--accent-pink)]">
               Preferred Stack
             </h3>
             <p className="text-slate-700 dark:text-slate-300 mb-4">
               Flutter, Django, Node.js, and Angular
             </p>
-            <h3 className="text-xl font-semibold mb-4 text-[var(--accent)]">
+            <h3 className="text-xl font-semibold mb-4 text-[var(--accent-pink)]">
               Development Practices
             </h3>
             <p className="text-slate-700 dark:text-slate-300">
