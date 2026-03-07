@@ -19,7 +19,7 @@ export default function Hero() {
     },
     {
       name: "Download CV",
-      url: "https://drive.google.com/uc?export=download&id=1IOQV_1IijCk4cyHINRdbDhY10XEg_ehU",
+      url: "/Paul-James-Villanueva-CV.pdf",
       icon: Download,
       variant: "secondary" as const,
     },
@@ -319,7 +319,7 @@ export default function Hero() {
             <span className="hidden md:inline whitespace-nowrap">Full-Stack Web/Mobile Developer</span>
           </p>
           <h1
-            className="hero-headline text-white"
+            className="hero-headline bg-name-glimmer animate-name-glimmer mb-4"
             style={{ opacity: 1, transform: "none" }}
           >
             <span className="whitespace-nowrap">PAUL JAMES</span>
@@ -344,12 +344,9 @@ export default function Hero() {
                 <a
                   key={link.name}
                   href={link.url}
-                  target={link.url.startsWith("http") ? "_blank" : undefined}
-                  rel={
-                    link.url.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
+                  target={link.name === "Download CV" ? undefined : link.url.startsWith("http") ? "_blank" : undefined}
+                  rel={link.name === "Download CV" ? undefined : link.url.startsWith("http") ? "noopener noreferrer" : undefined}
+                  download={link.name === "Download CV" ? "Paul-James-Villanueva-CV.pdf" : undefined}
                   className={`inline-flex items-center gap-2 rounded-full px-7 py-3 text-sm font-semibold transition-all duration-300 ${
                     isPrimary
                       ? "bg-accent-gradient text-white shadow-lg shadow-[var(--accent-pink)]/40 hover:shadow-[var(--accent-pink)]/60 hover:-translate-y-0.5"
