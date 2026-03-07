@@ -179,7 +179,7 @@ export default function Experience() {
                           </span>
                         </div>
                         <div className="space-y-5">
-                          {exp.roles.map((role, roleIdx) => (
+                          {(exp.roles ?? []).map((role, roleIdx) => (
                             <div key={roleIdx}>
                               <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
                                 <h3 className="text-lg font-semibold text-[var(--accent-pink)]">
@@ -214,7 +214,7 @@ export default function Experience() {
                           </span>
                         </div>
                         <ul className="list-disc list-inside space-y-1.5 text-slate-400 text-sm sm:text-base">
-                          {exp.description.map((item, idx) => (
+                          {(exp.description ?? []).map((item, idx) => (
                             <li key={idx}>{item}</li>
                           ))}
                         </ul>
