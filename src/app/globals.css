@@ -25,17 +25,7 @@
   --font-display: var(--font-syne);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #000000;
-    --foreground: #ededed;
-    --accent: #60a5fa;
-    --accent-hover: #3b82f6;
-    --accent-light: #1d3461;
-    --accent-pink: #c026d3;      /* vivid violet-magenta */
-    --accent-pink-light: #4a044e; /* deep purple tint */
-  }
-}
+/* Theme is always the same; no prefers-color-scheme override */
 
 /* Animations */
 @keyframes fadeInUp {
@@ -143,6 +133,14 @@
     font-weight: 500;
   }
 
+  .section-headline {
+    font-family: Bitcount Prop Double Ink, var(--font-display), sans-serif;
+    letter-spacing: -0.02em;
+    font-size: clamp(1.75rem, 5vw, 3rem);
+    line-height: 1.1;
+    font-weight: 500;
+  }
+
 }
 
 .animate-fade-in-up {
@@ -215,6 +213,7 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark; /* keep browser UI (scrollbars, etc.) dark; ignore device light/dark mode */
 }
 
 body {
