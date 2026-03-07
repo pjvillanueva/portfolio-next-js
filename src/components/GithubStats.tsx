@@ -56,6 +56,10 @@ function contributionGraphUrl(username: string, year: number): string {
     username: username,
     year: String(year),
   });
+  // Cache-bust current year (daily) so 2026 empty cells get latest proxy output
+  if (year === CURRENT_YEAR) {
+    params.set("_", new Date().toISOString().slice(0, 10));
+  }
   return `/api/github-heat?${params}`;
 }
 
