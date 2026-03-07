@@ -1,4 +1,4 @@
- "use client";
+"use client";
 
 import Image from "next/image";
 
@@ -47,14 +47,47 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-white dark:from-slate-950 dark:to-slate-900"
+      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-center text-slate-900 dark:text-slate-100 animate-fade-in-up">
+      {/* Gradient background – same as hero / About */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0 bg-black" />
+        <div className="absolute inset-0">
+          <div
+            className="absolute inset-x-0 top-0 h-[60%]"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(75,50,160,0.15) 0%, rgba(102,64,171,0.08) 40%, rgba(0,0,0,0) 70%)",
+            }}
+          />
+          <div
+            className="absolute right-0 top-1/2 -translate-y-1/2 h-[70%] w-[50%] max-w-md"
+            style={{
+              background:
+                "radial-gradient(ellipse 80% 80% at 80% 50%, rgba(236,72,153,0.12) 0%, rgba(236,72,153,0.03) 50%, transparent 70%)",
+              filter: "blur(40px)",
+            }}
+          />
+          <div
+            className="absolute left-0 bottom-0 h-[40%] w-[40%] max-w-xs"
+            style={{
+              background:
+                "radial-gradient(ellipse 70% 70% at 10% 80%, rgba(30,58,138,0.2) 0%, rgba(30,58,138,0) 70%)",
+              filter: "blur(32px)",
+            }}
+          />
+        </div>
+      </div>
+
+      <div className="relative z-10 max-w-5xl mx-auto">
+        <p className="text-xs sm:text-sm uppercase tracking-[0.4em] text-slate-400 mb-3 animate-fade-in-up">
+          Technologies
+        </p>
+        <h2 className="section-headline text-white uppercase mb-3 animate-fade-in-up animate-delay-100">
           Tech Stack
         </h2>
-        <p className="text-center text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto animate-fade-in-up animate-delay-100">
-          A quick overview of the technologies I work with most, inspired by my
+        <p className="text-slate-400 mb-10 max-w-2xl animate-fade-in-up animate-delay-100">
+          A quick overview of the technologies I use most, inspired by my
           original Flutter web portfolio.
         </p>
 
@@ -62,7 +95,7 @@ export default function Skills() {
           {mainStack.map((tech, index) => (
             <div
               key={tech.label}
-              className="relative flex flex-col items-center justify-center gap-2 rounded-3xl bg-white/80 dark:bg-slate-900/40 border border-white/40 dark:border-white/10 shadow-lg shadow-[var(--accent)]/10 backdrop-blur-xl px-5 py-4 min-w-[5.5rem] min-h-[5.5rem] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--accent)]/30"
+              className="relative flex flex-col items-center justify-center gap-2 rounded-2xl border border-slate-800 bg-slate-900/50 backdrop-blur-sm px-5 py-4 min-w-[5.5rem] min-h-[5.5rem] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--accent-pink)] hover:shadow-lg hover:shadow-[var(--accent-pink)]/15"
               style={{ animationDelay: `${0.15 + index * 0.05}s` }}
             >
               {tech.file ? (
@@ -74,7 +107,7 @@ export default function Skills() {
                   className="object-contain drop-shadow-sm"
                 />
               ) : null}
-              <span className="text-xs font-semibold text-slate-800 dark:text-slate-100">
+              <span className="text-xs font-semibold text-slate-200">
                 {tech.label}
               </span>
             </div>
@@ -82,19 +115,19 @@ export default function Skills() {
         </div>
 
         <div className="flex items-center justify-center gap-3 mb-8 animate-fade-in-up animate-delay-200">
-          <span className="h-px w-20 bg-slate-200 dark:bg-slate-700" />
-          <span className="text-xs tracking-[0.3em] text-slate-500 dark:text-slate-400 font-semibold">
-            OTHERS
+          <span className="h-px w-16 sm:w-20 bg-slate-600" />
+          <span className="text-xs tracking-[0.3em] text-slate-500 font-semibold uppercase">
+            Others
           </span>
-          <span className="h-px w-20 bg-slate-200 dark:bg-slate-700" />
+          <span className="h-px w-16 sm:w-20 bg-slate-600" />
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 animate-fade-in-up animate-delay-300">
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 animate-fade-in-up animate-delay-300">
           {otherStack.map((tech, index) => (
             <div
               key={tech.label}
-              className="flex flex-col items-center justify-center gap-2 rounded-3xl bg-white/70 dark:bg-slate-900/30 border border-slate-100/80 dark:border-slate-700/80 shadow-md backdrop-blur-lg px-4 py-3 min-w-[5rem] min-h-[4.75rem] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--accent)]/20"
-              style={{ animationDelay: `${0.3 + index * 0.03}s` }}
+              className="flex flex-col items-center justify-center gap-2 rounded-2xl border border-slate-800 bg-slate-900/40 backdrop-blur-sm px-4 py-3 min-w-[4.5rem] min-h-[4.25rem] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--accent-pink)]/80 hover:shadow-md hover:shadow-[var(--accent-pink)]/10"
+              style={{ animationDelay: `${0.3 + index * 0.02}s` }}
             >
               {tech.file ? (
                 <Image
@@ -105,11 +138,11 @@ export default function Skills() {
                   className="object-contain opacity-90"
                 />
               ) : (
-                <span className="h-9 w-9 rounded-2xl bg-slate-900/5 dark:bg-white/5 border border-slate-200/60 dark:border-white/10 flex items-center justify-center text-[11px] font-semibold text-slate-700 dark:text-slate-200">
+                <span className="h-9 w-9 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-[10px] font-semibold text-slate-300">
                   {tech.label.slice(0, 2).toUpperCase()}
                 </span>
               )}
-              <span className="text-[11px] font-medium text-slate-700 dark:text-slate-200">
+              <span className="text-[11px] font-medium text-slate-400">
                 {tech.label}
               </span>
             </div>
@@ -119,5 +152,3 @@ export default function Skills() {
     </section>
   );
 }
-
-
