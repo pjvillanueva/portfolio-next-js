@@ -31,6 +31,20 @@ export async function GET(request: NextRequest) {
     }
     let svg = await res.text();
 
+    // Empty days first (so 2026 and all years show grey): replace level-0 / empty cell colors.
+    svg = svg.replace(/#fce7f3/gi, EMPTY_DAY_COLOR);
+    svg = svg.replace(/fill="fce7f3"/gi, `fill="${EMPTY_DAY_COLOR}"`);
+    svg = svg.replace(/#ebedf0/gi, EMPTY_DAY_COLOR);
+    svg = svg.replace(/fill="ebedf0"/gi, `fill="${EMPTY_DAY_COLOR}"`);
+    svg = svg.replace(
+      /<rect([^>]*)class="contrib-cell"([^>]*)fill="0d1117"([^>]*)>/g,
+      `<rect$1class="contrib-cell"$2fill="${EMPTY_DAY_COLOR}"$3>`
+    );
+    svg = svg.replace(
+      /<rect([^>]*)fill="0d1117"([^>]*)class="contrib-cell"([^>]*)>/g,
+      `<rect$1fill="${EMPTY_DAY_COLOR}"$2class="contrib-cell"$3>`
+    );
+
     // Force dark background: remove any white/light and ensure SVG canvas is dark
     svg = svg.replace(/#ffffff/gi, BG_DARK);
     svg = svg.replace(/#fff\b/g, BG_DARK);
@@ -74,14 +88,11 @@ export async function GET(request: NextRequest) {
       return match.replace("<text", `<text fill="${LABEL_COLOR}"`);
     });
 
-    // Empty days: level 0 (no contributions) uses the first palette color #fce7f3 (lightest pink).
-    // Replace that with dark grey so empty days are visible and not white-looking.
-    svg = svg.replace(/#fce7f3/gi, EMPTY_DAY_COLOR);
-
     return new NextResponse(svg, {
       headers: {
         "Content-Type": "image/svg+xml",
-        "Cache-Control": "public, max-age=60",
+        "Cache-Control": "no-store, no-cache, must-revalidate",
+        Pragma: "no-cache",
       },
     });
   } catch {
