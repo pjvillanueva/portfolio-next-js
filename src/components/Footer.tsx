@@ -24,10 +24,10 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="border-t border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur">
+    <footer className="border-t border-slate-800 bg-slate-950/80 backdrop-blur">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 text-center md:text-left">
-          <p className="font-medium text-slate-700 dark:text-slate-200">
+        <div className="text-xs sm:text-sm text-slate-400 text-center md:text-left">
+          <p className="font-medium text-slate-200">
             © {year} <span className="font-name-raleway">Paul James Villanueva</span>
           </p>
           <p>Full-Stack Software Developer · Flutter & Web</p>
@@ -45,7 +45,7 @@ export default function Footer() {
                   : "noopener noreferrer"
               }
               aria-label={label}
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:border-[var(--accent-pink)] hover:text-[var(--accent-pink)] hover:shadow-md hover:shadow-[var(--accent-pink)]/20 transition-all"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 bg-slate-900 text-slate-200 hover:border-[var(--accent-pink)] hover:text-[var(--accent-pink)] hover:shadow-md hover:shadow-[var(--accent-pink)]/20 transition-all"
             >
               <Icon className="h-4 w-4" />
             </a>
