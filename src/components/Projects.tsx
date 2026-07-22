@@ -285,12 +285,24 @@ const projects: Project[] = [
     title: "LE Teams Mobile App",
     context: "Tuilder Web Services",
     description:
-      "Mobile app with background geolocation, offline sync, and field team workflows.",
+      "Field team app with inventory, daily entries, map markers, team stats, contacts, and offline-friendly workflows.",
     stack: "Flutter",
     gradient:
       "linear-gradient(125deg, #1d4ed8 0%, #2563eb 45%, #f97316 100%)",
     device: "iphone",
-    screenshots: [],
+    screenshots: [
+      "/assets/projects/le-teams/le-teams-01.png",
+      "/assets/projects/le-teams/le-teams-02.png",
+      "/assets/projects/le-teams/le-teams-03.png",
+      "/assets/projects/le-teams/le-teams-04.png",
+      "/assets/projects/le-teams/le-teams-05.png",
+      "/assets/projects/le-teams/le-teams-06.png",
+      "/assets/projects/le-teams/le-teams-08.png",
+      "/assets/projects/le-teams/le-teams-09.png",
+      "/assets/projects/le-teams/le-teams-10.png",
+      "/assets/projects/le-teams/le-teams-11.png",
+      "/assets/projects/le-teams/le-teams-13.png",
+    ],
     categories: ["Mobile"],
   },
   {
