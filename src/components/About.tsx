@@ -46,18 +46,20 @@ export default function About() {
 
         <div className="space-y-6">
           <p className="text-lg sm:text-xl text-slate-300 leading-relaxed animate-fade-in-up animate-delay-100">
-            Results-driven Full-Stack Software Developer with over 4 years of
-            experience in designing, developing, and deploying scalable web and
-            mobile applications. Highly skilled in Flutter, Django, .NET, and
-            Angular, with strong foundations in OOP, SOLID principles, and Agile
-            development.
+            I&apos;m a Full-Stack Software Developer with over 6 years of
+            experience building high-quality mobile and web applications. My
+            primary expertise is Flutter, complemented by experience in Node.js,
+            Django, .NET, Angular, and modern backend technologies.
           </p>
           <div className="flex gap-4 items-stretch animate-fade-in-up animate-delay-200">
             <div className="shrink-0 w-px self-stretch bg-slate-600" aria-hidden />
             <p className="text-lg sm:text-xl text-slate-400 leading-relaxed">
-              Passionate about clean code, performance optimization, and
-              user-centric design. I thrive in collaborative environments and
-              am always eager to learn new technologies and best practices.
+              I enjoy turning ideas into scalable, maintainable, and
+              user-friendly products. I focus on writing clean, efficient code,
+              creating intuitive user experiences, and delivering reliable
+              solutions from concept to deployment. I&apos;m always eager to
+              learn new technologies, improve my craft, and collaborate with
+              teams to build impactful software.
             </p>
           </div>
         </div>

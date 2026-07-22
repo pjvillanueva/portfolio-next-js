@@ -37,7 +37,7 @@ const syne = Syne({
 export const metadata: Metadata = {
   title: "Paul James Villanueva - Full-Stack Developer Portfolio",
   description:
-    "Results-driven Full-Stack Software Developer with over 4 years of experience in designing, developing, and deploying scalable web and mobile applications.",
+    "Full-Stack Software Developer with over 6 years of experience building high-quality mobile and web applications. Primary expertise in Flutter, with Node.js, Django, .NET, and Angular.",
 };
 
 export default function RootLayout({
