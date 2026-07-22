@@ -126,6 +126,16 @@ export async function GET() {
 
     const json = await res.json();
 
+    if (res.status === 401) {
+      return NextResponse.json(
+        {
+          error:
+            "GitHub token is invalid or expired. Update GITHUB_TOKEN in .env.local.",
+        },
+        { status: 401 },
+      );
+    }
+
     if (!res.ok || json.errors) {
       throw new Error(json.errors?.[0]?.message || "Failed to fetch GitHub stats");
     }
