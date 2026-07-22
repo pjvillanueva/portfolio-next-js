@@ -65,6 +65,7 @@ function contributionGraphUrl(username: string, year: number): string {
 
 export default function GithubStats() {
   const [data, setData] = useState<GithubStatsResponse | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const [inView, setInView] = useState(false);
   const [selectedYear, setSelectedYear] = useState(CURRENT_YEAR);
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -73,11 +74,19 @@ export default function GithubStats() {
     const load = async () => {
       try {
         const res = await fetch("/api/github-stats", { cache: "no-store" });
-        if (!res.ok) return;
-        const json = (await res.json()) as GithubStatsResponse;
-        setData(json);
+        const json = await res.json();
+        if (!res.ok) {
+          setError(
+            typeof json?.error === "string"
+              ? json.error
+              : "Unable to load GitHub stats right now.",
+          );
+          return;
+        }
+        setError(null);
+        setData(json as GithubStatsResponse);
       } catch {
-        // ignore
+        setError("Unable to load GitHub stats right now.");
       }
     };
 
@@ -104,7 +113,7 @@ export default function GithubStats() {
   }, []);
 
   const hasData = !!data;
-  const username = data?.username ?? "loading";
+  const username = data?.username ?? "pjvillanueva";
   const thisYearCommitsTarget = data?.thisYear.totalCommits ?? 0;
   const sixYearsCommitsTarget = data?.sixYears.totalCommits ?? 0;
   const prsIssuesReviewsTarget =
@@ -172,6 +181,12 @@ export default function GithubStats() {
           <span className="font-semibold text-[var(--accent-pink)]">6 years</span>{" "}
           on GitHub.
         </p>
+
+        {error && (
+          <p className="mb-6 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-200 animate-fade-in-up animate-delay-100">
+            {error}
+          </p>
+        )}
 
         <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/50 backdrop-blur-sm animate-fade-in-up animate-delay-200">
           <div className="pointer-events-none absolute -right-20 -top-20 h-40 w-40 rounded-full bg-[var(--accent-pink)]/10 blur-3xl" />

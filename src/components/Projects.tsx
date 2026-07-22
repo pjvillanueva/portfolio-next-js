@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { ExternalLink } from "lucide-react";
 import DeviceShowcase from "@/components/DeviceShowcase";
 
 type DeviceKind = "iphone" | "macbook";
@@ -16,6 +17,10 @@ type Project = {
   device: DeviceKind;
   screenshots: string[];
   categories: ProjectCategory[];
+  siteUrl?: string;
+  playStoreUrl?: string;
+  appStoreUrl?: string;
+  hidden?: boolean;
 };
 
 const projects: Project[] = [
@@ -45,6 +50,8 @@ const projects: Project[] = [
       "/assets/projects/afterdark/ad-14.png",
     ],
     categories: ["Mobile"],
+    appStoreUrl: "https://apps.apple.com/us/app/afterdark-society/id6753719019",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.afterdark.app",
   },
   {
     title: "Stay Delivered App",
@@ -98,6 +105,10 @@ const projects: Project[] = [
       "/assets/projects/dtb-app/dtb-14.png",
     ],
     categories: ["Mobile"],
+    appStoreUrl:
+      "https://apps.apple.com/de/app/alpaka-dtb-kampfrichter-app/id1612507963",
+    playStoreUrl:
+      "https://play.google.com/store/apps/details?id=coach.alpaka.prod",
   },
   {
     title: "DTB Competition Judge Web App",
@@ -155,6 +166,7 @@ const projects: Project[] = [
     device: "iphone",
     screenshots: [],
     categories: ["Mobile"],
+    hidden: true,
   },
   {
     title: "Ayla Voice Assistant",
@@ -165,7 +177,12 @@ const projects: Project[] = [
     gradient:
       "linear-gradient(125deg, #0b1120 0%, #1d4ed8 45%, #7e22ce 100%)",
     device: "iphone",
-    screenshots: [],
+    screenshots: [
+      "/assets/projects/ayla/ayla-01.png",
+      "/assets/projects/ayla/ayla-02.png",
+      "/assets/projects/ayla/ayla-03.png",
+      "/assets/projects/ayla/ayla-04.png",
+    ],
     categories: ["Mobile"],
   },
   {
@@ -179,6 +196,7 @@ const projects: Project[] = [
     device: "iphone",
     screenshots: [],
     categories: ["Mobile"],
+    hidden: true,
   },
   {
     title: "WorkWithMe",
@@ -191,6 +209,7 @@ const projects: Project[] = [
     device: "macbook",
     screenshots: [],
     categories: ["Web"],
+    hidden: true,
   },
   {
     title: "Virtual Background Web App",
@@ -201,55 +220,89 @@ const projects: Project[] = [
     gradient:
       "linear-gradient(125deg, #1e3a8a 0%, #1d4ed8 40%, #38bdf8 100%)",
     device: "macbook",
-    screenshots: [],
+    screenshots: [
+      "/assets/projects/virtual-background/vb-01.png",
+      "/assets/projects/virtual-background/vb-02.png",
+      "/assets/projects/virtual-background/vb-03.png",
+    ],
     categories: ["Web"],
+    siteUrl: "https://vbg.tda.website/",
   },
   {
     title: "XLINGUA Website",
     context: "WEB4EX",
     description:
-      "Placeholder description for the XLINGUA website. Update with key goals, audience, and core features.",
-    stack: "Tech stack placeholder",
+      "Language-learning marketing site with course packages, founders offer, and consultation CTAs for Swiss learners.",
+    stack: "Web",
     gradient:
       "linear-gradient(125deg, #0f172a 0%, #1d4ed8 45%, #06b6d4 100%)",
     device: "macbook",
-    screenshots: [],
+    screenshots: ["/assets/projects/xlingua/xlingua-01.png"],
     categories: ["Web"],
+    siteUrl: "https://www.xlingua.ch/",
   },
   {
     title: "WEB4EX Website",
     context: "WEB4EX",
     description:
-      "Placeholder description for the WEB4EX website. Add details about functionality and business impact.",
-    stack: "Tech stack placeholder",
+      "Company site for a Zurich software studio—hero landing, case studies, B2B project planner, and an AI project advisor chat flow.",
+    stack: "Next.js · Web",
     gradient:
       "linear-gradient(125deg, #3f3f46 0%, #2563eb 45%, #6366f1 100%)",
     device: "macbook",
-    screenshots: [],
+    screenshots: [
+      "/assets/projects/web4ex/web4ex-01.png",
+      "/assets/projects/web4ex/web4ex-02.png",
+      "/assets/projects/web4ex/web4ex-03.png",
+      "/assets/projects/web4ex/web4ex-04.png",
+    ],
     categories: ["Web"],
+    siteUrl: "https://web4ex.ch/",
   },
   {
     title: "MYVORA Website",
     context: "WEB4EX",
     description:
-      "Placeholder description for the MYVORA website. Replace with final scope, features, and outcomes.",
-    stack: "Tech stack placeholder",
+      "Swiss premium gummies e-commerce site with product catalog, bundles, waitlist/wishlist flows, shipping info, and an admin waitlist dashboard.",
+    stack: "Web · E-commerce",
     gradient:
       "linear-gradient(125deg, #3f6212 0%, #65a30d 45%, #facc15 100%)",
     device: "macbook",
-    screenshots: [],
+    screenshots: [
+      "/assets/projects/myvora/myvora-20261.png",
+      "/assets/projects/myvora/myvora-20262.png",
+      "/assets/projects/myvora/myvora-20263.png",
+      "/assets/projects/myvora/myvora-20264.png",
+      "/assets/projects/myvora/myvora-20265.png",
+      "/assets/projects/myvora/myvora-20266.png",
+      "/assets/projects/myvora/myvora-20267.png",
+      "/assets/projects/myvora/myvora-20268.png",
+    ],
     categories: ["Web"],
+    siteUrl: "https://myvora.ch/",
   },
   {
     title: "LE Teams Mobile App",
     context: "Tuilder Web Services",
     description:
-      "Mobile app with background geolocation, offline sync, and field team workflows.",
+      "Field team app with inventory, daily entries, map markers, team stats, contacts, and offline-friendly workflows.",
     stack: "Flutter",
     gradient:
       "linear-gradient(125deg, #1d4ed8 0%, #2563eb 45%, #f97316 100%)",
     device: "iphone",
-    screenshots: [],
+    screenshots: [
+      "/assets/projects/le-teams/le-teams-01.png",
+      "/assets/projects/le-teams/le-teams-02.png",
+      "/assets/projects/le-teams/le-teams-03.png",
+      "/assets/projects/le-teams/le-teams-04.png",
+      "/assets/projects/le-teams/le-teams-05.png",
+      "/assets/projects/le-teams/le-teams-06.png",
+      "/assets/projects/le-teams/le-teams-08.png",
+      "/assets/projects/le-teams/le-teams-09.png",
+      "/assets/projects/le-teams/le-teams-10.png",
+      "/assets/projects/le-teams/le-teams-11.png",
+      "/assets/projects/le-teams/le-teams-13.png",
+    ],
     categories: ["Mobile"],
   },
   {
@@ -268,36 +321,67 @@ const projects: Project[] = [
     title: "SDA Explorers App",
     context: "Personal Projects",
     description:
-      "Personal mobile app project for SDA Explorers. Update this with final purpose, core features, and outcomes.",
-    stack: "Tech stack placeholder",
+      "Faith-based explorer app with lessons, quizzes, Bible reader, hymnal, church finder, profile, and achievements.",
+    stack: "Flutter",
     gradient:
       "linear-gradient(125deg, #1e3a8a 0%, #2563eb 45%, #22c55e 100%)",
     device: "iphone",
-    screenshots: [],
+    screenshots: [
+      "/assets/projects/sda-explorers/sdaex-01.png",
+      "/assets/projects/sda-explorers/sdaex-02.png",
+      "/assets/projects/sda-explorers/sdaex-03.png",
+      "/assets/projects/sda-explorers/sdaex-04.png",
+      "/assets/projects/sda-explorers/sdaex-05.png",
+      "/assets/projects/sda-explorers/sdaex-06.png",
+      "/assets/projects/sda-explorers/sdaex-07.png",
+      "/assets/projects/sda-explorers/sdaex-08.png",
+      "/assets/projects/sda-explorers/sdaex-09.png",
+      "/assets/projects/sda-explorers/sdaex-10.png",
+      "/assets/projects/sda-explorers/sdaex-11.png",
+      "/assets/projects/sda-explorers/sdaex-12.png",
+      "/assets/projects/sda-explorers/sdaex-13.png",
+      "/assets/projects/sda-explorers/sdaex-14.png",
+      "/assets/projects/sda-explorers/sdaex-15.png",
+      "/assets/projects/sda-explorers/sdaex-16.png",
+    ],
     categories: ["Mobile"],
   },
   {
     title: "QMII App",
     context: "Personal Projects",
     description:
-      "Personal mobile app project for QMII. Replace this with final app summary and key implementation highlights.",
-    stack: "Tech stack placeholder",
+      "Queue management app for customers and vendors—join by code/QR, live wait status, visit history, and profile settings.",
+    stack: "Flutter",
     gradient:
       "linear-gradient(125deg, #0f172a 0%, #334155 45%, #06b6d4 100%)",
     device: "iphone",
-    screenshots: [],
+    screenshots: [
+      "/assets/projects/qmii/qmii-01.png",
+      "/assets/projects/qmii/qmii-02.png",
+      "/assets/projects/qmii/qmii-03.png",
+      "/assets/projects/qmii/qmii-04.png",
+      "/assets/projects/qmii/qmii-05.png",
+      "/assets/projects/qmii/qmii-06.png",
+    ],
     categories: ["Mobile"],
   },
   {
     title: "HootFlow App",
     context: "Personal Projects",
     description:
-      "Personal mobile app project for HootFlow. Add final details about features, users, and project impact.",
-    stack: "Tech stack placeholder",
+      "Money stopwatch app that tracks time-to-earnings with live currency visuals, session history, and weekly trends.",
+    stack: "Flutter",
     gradient:
       "linear-gradient(125deg, #3f3f46 0%, #7c3aed 45%, #f43f5e 100%)",
     device: "iphone",
-    screenshots: [],
+    screenshots: [
+      "/assets/projects/hootflow/hootflow-01.png",
+      "/assets/projects/hootflow/hootflow-02.png",
+      "/assets/projects/hootflow/hootflow-03.png",
+      "/assets/projects/hootflow/hootflow-04.png",
+      "/assets/projects/hootflow/hootflow-05.png",
+      "/assets/projects/hootflow/hootflow-06.png",
+    ],
     categories: ["Mobile"],
   },
 ];
@@ -307,9 +391,10 @@ export default function Projects() {
   const filterOptions: ProjectFilter[] = ["All", "Mobile", "Web", "Backend"];
   const filteredProjects = useMemo(
     () =>
-      activeFilter === "All"
+      (activeFilter === "All"
         ? projects
-        : projects.filter((project) => project.categories.includes(activeFilter)),
+        : projects.filter((project) => project.categories.includes(activeFilter))
+      ).filter((project) => !project.hidden),
     [activeFilter],
   );
 
@@ -383,9 +468,46 @@ export default function Projects() {
                   <p className="text-sm sm:text-base text-slate-100/95 max-w-3xl leading-relaxed mb-3 sm:mx-0 mx-auto">
                     {project.description}
                   </p>
-                  <p className="text-xs sm:text-sm font-medium text-white/85 border border-white/25 rounded-full px-3 py-1 w-fit backdrop-blur-sm bg-black/20 sm:mx-0 mx-auto">
+                  <p className="text-xs sm:text-sm font-medium text-white/85 border border-white/25 rounded-full px-3 py-1 w-fit backdrop-blur-sm bg-black/20 sm:mx-0 mx-auto mb-3">
                     {project.stack}
                   </p>
+                  {(project.siteUrl ||
+                    project.playStoreUrl ||
+                    project.appStoreUrl) && (
+                    <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                      {project.siteUrl && (
+                        <a
+                          href={project.siteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-black/25 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition hover:border-white/60 hover:bg-black/40"
+                        >
+                          <ExternalLink className="h-3.5 w-3.5" />
+                          Visit Site
+                        </a>
+                      )}
+                      {project.playStoreUrl && (
+                        <a
+                          href={project.playStoreUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-black/25 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition hover:border-white/60 hover:bg-black/40"
+                        >
+                          Play Store
+                        </a>
+                      )}
+                      {project.appStoreUrl && (
+                        <a
+                          href={project.appStoreUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-black/25 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition hover:border-white/60 hover:bg-black/40"
+                        >
+                          App Store
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             </article>
