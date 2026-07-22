@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Play, Apple } from "lucide-react";
 import DeviceShowcase from "@/components/DeviceShowcase";
 
 type DeviceKind = "iphone" | "macbook";
@@ -25,7 +25,7 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "Communities social platform",
+    title: "AfterDark Society",
     context: "Afterdark Society",
     description:
       "Social app for diverse communities with real-time messaging and content sharing.",
@@ -58,7 +58,7 @@ const projects: Project[] = [
     context: "Afterdark Society",
     description:
       "Mobile app project for Stay Delivered. Update this with final features, user flows, and outcomes.",
-    stack: "Tech stack placeholder",
+    stack: "Flutter · Firebase",
     gradient:
       "linear-gradient(125deg, #166534 0%, #16a34a 45%, #f97316 100%)",
     device: "iphone",
@@ -493,6 +493,7 @@ export default function Projects() {
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-black/25 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition hover:border-white/60 hover:bg-black/40"
                         >
+                          <Play className="h-3.5 w-3.5 fill-current" />
                           Play Store
                         </a>
                       )}
@@ -503,6 +504,7 @@ export default function Projects() {
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-black/25 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-sm transition hover:border-white/60 hover:bg-black/40"
                         >
+                          <Apple className="h-3.5 w-3.5" />
                           App Store
                         </a>
                       )}
